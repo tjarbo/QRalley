@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QR-Schnitzeljagd</title>
+</head>
+
+<body>
+    <!-- TITEL BAR -->
+    <div class="w3-bar w3-green">
+        <img class="w3-bar-item" height="38px" width="auto" src="./qr_code.png" alt="">
+        <div class="w3-bar-item w3-text-white">QR-Schnitzeljagd</div>
+    </div>
+
+    <!-- SCHNITZELJAGD -->
+    <div class="w3-container">
+        <h3 id="app_titel">Titel der Aufgabe</h3>
+        <p id="app_beschreibung">
+           Hier kommt eine Beschreibung der aktuellen Station hin.<br>
+           <b>Bsp.:</b>
+           Super! Ihr habt das erste Rätzel gelöst! Nun geht es weiter - schafft Ihr
+           es das schwierige Rätzel zu lösen und somit einen weiteren Buchstaben zu entschlüsseln ?
+           Aber seit fasst! So einfach es auch aussehen mag ... Denkt um die Ecke ;)
+        </p>
+
+        <div class="w3-panel w3-pale-green">
+            <p id="app_aufgabe">
+                Was ist grün und dreieckig ?
+            </p>
+        </div>
+
+        <div class="w3-conatiner">
+            <button onclick="lösungEingeben()" id="app_button_lösung" class="w3-button w3-blue">Lösung eingeben</button>
+            <button id="app_button_hinweis" class="w3-hide w3-button w3-orange">Hinweis</button>
+        </div>
+    </div>
+
+    <!-- GLÜCKWUNSCH -->
+    <div id="app_modal" class="w3-modal">
+        <div class="w3-modal-content">
+            <div class="w3-container">
+                <span onclick="document.getElementById('app_modal').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <div>
+                    <h3>Seht gut 👍</h3>
+                    <p>Ihr habt das Rätzel gelöst 🎉! Notiert auch schnell den Buchstaben und weiter geht's 🐱‍🏍!</p>
+                    
+                    <div class="w3-panel w3-pale-green" >
+                        <p id="app_modal_schlüssel w3-text-red w3-center">K</p>
+                    </div>
+                    
+                    <div class="w3-container w3-center w3-margin">
+                        <a id="app_modal_weiter" href="#" class="w3-button w3-white w3-border w3-border-green w3-text-green">Zur Nächsten Station 🚩</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<!-- CSS -->
+<link rel="stylesheet" href="./lib/w3.css">
+
+<!-- JS -->
+<script src="./lib/jquery.js"></script>
+<script src="./js/daten.js"></script>
+<script src="./js/app.js"></script>
+
+</html>
