@@ -29,37 +29,37 @@ const beschreibungen = [
 ]
 const aufgaben = [
     {
-        t:"Welcher Tag ist heute?",
+        r:"Welcher Tag ist heute?",
         l:"Samstag",
         h:"Nicht Mo, Di, Mi, Do, Fr & So",
         k: "T"
     },
     {
-        t:"Welche Farbe hat der Turm in der Nähe?",
+        r:"Welche Farbe hat der Turm in der Nähe?",
         l:"Grün",
         h:"Such nach einem Holzpfahl",
         k: "J"
     },
     {
-        t:"Wenn morgen gestern heute war, welcher Tag ist dann in 27 Tagen?",
+        r:"Wenn morgen gestern heute war, welcher Tag ist dann in 27 Tagen?",
         l:"Freitag",
         h:"Schaut im Kalender ;)",
         k: "A"
     },
     {
-        t:"Wie viele Gullideckel findet ihr auf der Straße?",
+        r:"Wie viele Gullideckel findet ihr auf der Straße?",
         l:"14",
         h:"Schaut auch unter die Autos",
         k: "R"
     },
     {
-        t:"Wie viele Fenster zählt ihr vor euch ?",
+        r:"Wie viele Fenster zählt ihr vor euch ?",
         l:"25",
         h:"Es zählt jedes Glas einzeln",
         k:"B"
     },
     {
-        t:"Wie viele graue Laternen zählt Ihr?",
+        r:"Wie viele graue Laternen zählt Ihr?",
         l:"8",
         h:"(4*5 + 720/180) / 3",
         k:"O"

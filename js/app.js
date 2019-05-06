@@ -20,7 +20,7 @@ function ladeStation(nr) {
     $("#app_beschreibung").text(daten.beschreibung)
 
 
-    $("#app_aufgabe").text(daten.aufgabe.t)
+    $("#app_aufgabe").text(daten.aufgabe.r)
     $("#app_modal_schlüssel").text(daten.aufgabe.k)
 
     // Link zur nächsten Station laden und einrichten 🗺
@@ -55,9 +55,10 @@ function lösungEingeben() {
 
     // Passe die Eingabe an um Fehler bei der Eingabe zu minimieren ✂
     eingabe.trim().toLowerCase()
+    var l = daten.aufgabe.l.trim().toLowerCase()
 
     //Überprüfe die Eingabe 🔍
-    if (eingabe == daten.aufgabe.l) {
+    if (eingabe == l) {
         // Eingabe der Lösung war richtig ✔
         $("#app_modal").show()
     } else {
