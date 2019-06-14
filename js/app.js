@@ -2,6 +2,34 @@ var stationsnummer;
 var daten;
 var anzahlVersuche = 0;
 
+// Generiere zufällige IDs der Stationen für die QR-Codes/*  */
+function ids() {
+
+    // Überprüfe, dass es sich um Starteinstellungen handelt
+    if (ladeStationsnummer()) { return; }
+
+    var ids = []
+    for (let index = 0; index < stationen.length; index++) {
+        var genID;
+        while (genID % stationen.length != index || genID <= stationen.length) {
+            genID = ((ids[index - 1] || 0) + Math.floor(Math.random() * 100))
+        }
+        ids.push(genID)
+    }
+
+    console.log('%c Kopiere die folgenden Zeilen: ', 'background: #222; color: yellow');
+    var anzeige = "";
+    ids.forEach(id => {
+        anzeige += window.location + '?id=' + id + '\n'
+    });
+    console.log(anzeige)
+}
+
+function checkFailed() {
+    // https://schnitzjagd.de?id=1232 => 1232 <= Anzahl der Stationen ?
+    return window.location.search.substr(1).split("=") <= stationen.length
+}
+
 function ladeStationsnummer() {
     // https://schnitzjagd.de?id=1232 => 1232
     var urlsplit = window.location.search.substr(1).split("=")
@@ -65,7 +93,7 @@ function lösungEingeben() {
         // Eingabe der Lösung war falsch ❌
         // alert("Leider falsch!") => Das war iwann zu nervig 😑
         blinkenLösungButton()
-        
+
         // Zeige den Hinweis nach 3 Fehlversuchen an 👩‍🏫
         anzahlVersuche == 3 ? $("#app_button_hinweis").removeClass("w3-hide") : null
     }
@@ -73,13 +101,13 @@ function lösungEingeben() {
 
 function blinkenLösungButton() {
     const el = $("#app_button_lösung")
-    
+
     // Abwechselnd Rot und Weiß blinken 🔆 
     el.removeClass("w3-blue")
-    const intervalID = setInterval(function() {el.hasClass("w3-red") ? el.removeClass("w3-red") : el.addClass("w3-red")}, 200)
-    
+    const intervalID = setInterval(function () { el.hasClass("w3-red") ? el.removeClass("w3-red") : el.addClass("w3-red") }, 200)
+
     // Nach ca 1,7 Sekunden den Lösungs-Knopf wieder zurücksetzen 🍭
-    setTimeout(function() {
+    setTimeout(function () {
         clearInterval(intervalID)
         el.removeClass("w3-red")
         el.addClass("w3-blue")
@@ -88,6 +116,7 @@ function blinkenLösungButton() {
 
 function main() {
     // 1. Schritt - 'Entschlüssle' die Nummer der Station 🔐
+    if (!ladeStationsnummer() || checkFailed()) { console.error("abbruch"); return; }
     stationsnummer = ladeStationsnummer()
 
     // 2. Schritt - Lade die Stationsinformationen 🧬
